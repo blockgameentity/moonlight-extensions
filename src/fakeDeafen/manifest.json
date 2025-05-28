@@ -1,0 +1,44 @@
+{
+  "$schema": "https://moonlight-mod.github.io/manifest.schema.json",
+  "id": "fakeDeafen",
+  "version": "1.0.0",
+  "apiLevel": 2,
+  "meta": {
+    "name": "Fake Deafen",
+    "tagline": "Adds a button next to the deafen button to fake deafen.",
+    "description": "Fake Deafen allows you to appear deafen but still hear and talk.\nCode from GameActivityToggle",
+    "authors": ["desu"],
+    "source": "https://github.com/blockgameentity/moonlight-extensions"
+  },
+  "dependencies": ["spacepack", "common"],
+  "settings": {
+    "muteUponFakeDeafen": {
+      "displayName": "Mute upon fake deafen",
+      "description": "Mutes you when you fake deafen",
+      "type": "boolean",
+      "default": false,
+      "advice": "none"
+    },
+    "mute": {
+      "displayName": "Fake mute",
+      "description": "Tells Discord to show you as muted, but you're not actually muted",
+      "type": "boolean",
+      "default": true,
+      "advice": "none"
+    },
+    "deafen": {
+      "displayName": "Fake deafen",
+      "description": "Tells Discord to show you as deafened, but you're not actually deafened",
+      "type": "boolean",
+      "default": true,
+      "advice": "none"
+    },
+    "cam": {
+      "displayName": "Fake cam",
+      "description": "Tells Discord to show you with a webcam on, but since there's no source to be defined, it will load infinitely",
+      "type": "boolean",
+      "default": false,
+      "advice": "none"
+    }
+  }
+}
