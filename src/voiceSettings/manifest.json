@@ -1,0 +1,45 @@
+{
+  "$schema": "https://moonlight-mod.github.io/manifest.schema.json",
+  "id": "voiceSettings",
+  "version": "1.0.0",
+  "apiLevel": 2,
+  "meta": {
+    "name": "Voice Settings",
+    "tagline": "Illegal voice settings",
+    "description": "Customize your voice bitrate, stereo, downmixing, etc.",
+    "authors": ["desu"],
+    "source": "https://github.com/blockgameentity/moonlight-extensions"
+  },
+  "dependencies": ["spacepack", "common"],
+  "settings": {
+    "voiceBitrate": {
+      "displayName": "Your voice bitrate",
+      "description": "WIP - Might not work?",
+      "type": "number",
+      "default": 384000,
+      "min": 48000,
+      "max": 512000,
+      "advice": "reload"
+    },
+    "stereo": {
+      "displayName": "Stereo",
+      "description": "Microphone is in stereo",
+      "type": "boolean",
+      "default": false,
+      "advice": "reload"
+    },
+    "downmix": {
+      "displayName": "Downmix",
+      "description": "Downmixes people to mono. Counters stereo users.",
+      "type": "boolean",
+      "default": false,
+      "advice": "reload"
+    },
+    "fixerPath": {
+      "displayName": "Fixer Path",
+      "description": "The fixer is the reason why this plugin even works.",
+      "type": "string",
+      "advice": "reload"
+    }
+  }
+}
