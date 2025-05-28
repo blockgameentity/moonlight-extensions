@@ -2,7 +2,6 @@ import * as fs from 'fs';
 import * as path from 'path';
 import * as os from 'os';
 import * as crypto from 'crypto';
-import * as semver from 'semver';
 import { execFile } from 'child_process';
 
 const expectedHash = 'a8e30688319b22f029007d057369e4b12f83fe6cbfaf675280de0461ad007f30';
@@ -14,13 +13,25 @@ function getLatestDiscordAppPath(): string | null {
 
   const dirs = fs.readdirSync(discordPath)
     .filter(name => fs.statSync(path.join(discordPath, name)).isDirectory() && name.startsWith('app-'))
-    .map(name => ({ name, version: name.replace('app-', '') }))
-    .filter(entry => semver.valid(entry.version))
-    .sort((a, b) => semver.rcompare(a.version, b.version));
+    .map(name => ({ name, version: name.replace('app-', '') }));
 
   if (dirs.length === 0) return null;
+
+  dirs.sort((a, b) => {
+    const aParts = a.version.split('.').map(Number);
+    const bParts = b.version.split('.').map(Number);
+    const len = Math.max(aParts.length, bParts.length);
+    for (let i = 0; i < len; i++) {
+      const aNum = aParts[i] || 0;
+      const bNum = bParts[i] || 0;
+      if (aNum !== bNum) return bNum - aNum;
+    }
+    return 0;
+  });
+
   return path.join(discordPath, dirs[0].name, 'modules', 'discord_voice-1', 'discord_voice');
 }
+
 
 console.log(getLatestDiscordAppPath());
 
