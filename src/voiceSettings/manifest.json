@@ -5,7 +5,7 @@
   "apiLevel": 2,
   "meta": {
     "name": "Voice Settings",
-    "tagline": "Illegal voice settings",
+    "tagline": "Illegal voice settings - NOTICE: you need to set the fixer path first",
     "description": "Customize your voice bitrate, stereo, downmixing, etc.",
     "authors": ["desu"],
     "source": "https://github.com/blockgameentity/moonlight-extensions"
