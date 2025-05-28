@@ -18,7 +18,7 @@ export const patches: ExtensionWebExports["patches"] = [
     find: "}getCodecOptions(",
     replace: {
         match: "freq:48e3,pacsize:960,channels:1,rate:64e3",
-        replacement: 'freq:48e3,pacsize:960,channels:2,params:{stereo:"1"},rate:64e3'
+        replacement: 'freq:48e3,pacsize:960,channels:2,params:{stereo:"2"},rate:64e3'
     },
     prerequisite: stereo
   },
